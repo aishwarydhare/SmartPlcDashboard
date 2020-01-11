@@ -2829,7 +2829,9 @@ html.boxed-layout .appWrapper.header-fixed.aside-static #header {
   padding-left: 30px;
   height: 45px;
   line-height: 45px;
-  background: url(../images/minovate-logo.png) no-repeat 0 10px;
+  background: url(../images/s3logo.png) no-repeat 0 0px;
+  background-size: cover;
+  width: 100%;
   float: left;
   -webkit-transition: none;
   -moz-transition: none;
