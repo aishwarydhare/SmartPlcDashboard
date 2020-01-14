@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sr02</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style type="text/css">
+        td {
+            font-size: 12px;
+        }
+
+        table td {
+            border-color: gray !important;
+        }
+
+        #tblfooter td {
+            border-style: none;
+        }
+    </style>
+</head>
+<body style="background-color:#ece9d8;">
+    <!--<body>-->
+    <div class="container">
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <td></td>
+                        <td>Clamp (mm) <img src="images/scaleicon.bmp" style="float:right" /></td>
+                        <td>Screw (mm)  <img src="images/scaleicon.bmp" style="float:right" /> </td>
+                        <td>Hyd.Ej (mm)  <img src="images/scaleicon.bmp" style="float:right" /> </td>
+                        <td>Inj.Unit (mm)   <img src="images/scaleicon.bmp" style="float:right" /></td>
+                        <td> <img src="images/pencilicon.bmp" /> <br /> Screw (rpm)  </td>
+                        <td>Energy (kwh)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Batch /</td>
+                        <td>Hourly Pro: <br /> Rem Mins:</td>
+                        <td><img src="images/clockicon.bmp" style="float:right" /><br /> Mold Cls (sec)</td>
+                        <td><img src="images/clockicon.bmp" style="float:right" /><br />Injection (sec)</td>
+                        <td><img src="images/clockicon.bmp" style="float:right" /><br />Refill (sec)</td>
+                        <td><img src="images/clockicon.bmp" style="float:right" /><br />Cooling (sec)</td>
+                        <td><img src="images/clockicon.bmp" style="float:right" /><br />Total Cyc (sec)</td>
+                        <td>Access Level:</td>
+                    </tr>
+                    <tr>
+                        <td>Flag: <!--<input type="text" />--></td>
+                        <td colspan="3">Stage:  <!--<input type="text" />--> </td>
+
+                        <td>Q=<!--<input type="text" />-->% </td>
+                        <td>P=<!--<input type="text" />--> bar </td>
+                        <td>D=<!--<input type="text" />--> mm </td>
+                        <td>T=<!--<input type="text" />--> sec </td>
+
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5" style="background-color:#A5A5A5">
+                <h4>ZONE TEMPERATURE SETTINGS</h4>
+            </div>
+            <div class="col-md-7"></div>
+
+
+        </div>
+        <div class="row" style="height:10px;"></div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-10" style="padding-left:0">
+                <div class="panel panel-default" style="width:100%;border:1px solid gray">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Zones</th>
+                                        <th>Set.Temp </th>
+                                        <th>Lo.Alarm</th>
+                                        <th>Hi.Alarm</th>
+                                        <th>%Duty</th>
+                                        <th>Status</th>
+                                        <th>Act Temp</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <td>Zone 1 </td>
+                                        <td> <input type="text" style="width:100%" /> </td>
+                                        <td> <input type="text" style="width:100%;text-align:center;font-weight:900" value="-" /> </td>
+                                        <td> <input type="text" style="width:100%;text-align:center;font-weight:900" value="+" /> </td>
+                                        <td> <input type="text" style="width:100%" /> </td>
+                                        <td>  </td>
+                                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zone 2 </td>
+                                        <td> <input type="text" style="width:100%" /> </td>
+                                        <td> <input type="text" style="width:100%;text-align:center;font-weight:900" value="-" /> </td>
+                                        <td> <input type="text" style="width:100%;text-align:center;font-weight:900" value="+" /> </td>
+                                        <td> <input type="text" style="width:100%" /> </td>
+                                        <td>  </td>
+                                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zone 3 </td>
+                                        <td> <input type="text" style="width:100%" /> </td>
+                                        <td> <input type="text" style="width:100%;text-align:center;font-weight:900" value="-" /> </td>
+                                        <td> <input type="text" style="width:100%;text-align:center;font-weight:900" value="+" /> </td>
+                                        <td> <input type="text" style="width:100%" /> </td>
+                                        <td>  </td>
+                                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zone 4 </td>
+                                        <td> <input type="text" style="width:100%" /> </td>
+                                        <td> <input type="text" style="width:100%;text-align:center;font-weight:900" value="-" /> </td>
+                                        <td> <input type="text" style="width:100%;text-align:center;font-weight:900" value="+" /> </td>
+                                        <td> <input type="text" style="width:100%" /> </td>
+                                        <td>  </td>
+                                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Zone 5 </td>
+                                        <td> <input type="text" style="width:100%" /> </td>
+                                        <td> <input type="text" style="width:100%;text-align:center;font-weight:900" value="-" /> </td>
+                                        <td> <input type="text" style="width:100%;text-align:center;font-weight:900" value="+" /> </td>
+                                        <td> <input type="text" style="width:100%" /> </td>
+                                        <td>  </td>
+                                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Hyd.Oil </td>
+                                        <td><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---</label> </td>
+                                        <td><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---</label> </td>
+                                        <td> <input type="text" style="width:100%;text-align:center;font-weight:900" value="+" /> </td>
+                                        <td> <input type="text" style="width:100%" /> </td>
+                                        <td>  </td>
+                                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nozzle </td>
+                                        <td> <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---</label> </td>
+                                        <td><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---</label> </td>
+                                        <td><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;---</label> </td>
+                                        <td> <input type="text" style="width:100%" /> </td>
+                                        <td>  </td>
+                                        <td><label>&nbsp;&nbsp;&nbsp;&nbsp;---</label> </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="row" style="height:20px;"> </div>
+        <div class="row">
+            <div class="col-md-5">
+
+
+            </div>
+            <div class="col-md-3">
+                <label>Minimum Inj Temperature</label>
+            </div>
+            <div class="col-md-2">
+                <input type="text" style="width:50%" /><label>Deg.C</label>
+            </div>
+            <div class="col-md-2">
+
+
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+
+
+            </div>
+            <div class="col-md-3">
+                <label>On High Temp Alarm</label>
+            </div>
+            <div class="col-md-2">
+               <select style="width:70%"></select>
+            </div>
+            <div class="col-md-2">
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="row" style="height:10px"></div>
+
+        <div class="row">
+            <table id="tblfooter" class="table table-bordered" style="padding-left:0">
+                <tr>
+
+                    <td>  <img src="images/bottom1.bmp" /></td>
+                    <td>  <img src="images/bottom2.bmp" /></td>
+                    <td>  <img src="images/bottom3.bmp" /></td>
+                    <td>  <img src="images/bottom4.bmp" /></td>
+
+                    <td>  <img src="images/bottom5.bmp" /></td>
+
+                    <td>  <img src="images/bottom6.bmp" /></td>
+                    <td>  <img src="images/bottom7.bmp" /></td>
+                    <td>  <img src="images/bottom8.bmp" /></td>
+
+                </tr>
+
+            </table>
+            <!--<div class="col-md-1">
+            <img src="images/bottom1.bmp" />
+        </div>
+        <div class="col-md-1">
+            <img src="images/bottom2.bmp" />
+        </div>
+        <div class="col-md-1">
+            <img src="images/bottom3.bmp" />
+        </div>
+        <div class="col-md-1">
+            <img src="images/bottom4.bmp" />
+        </div>
+        <div class="col-md-1">
+            <img src="images/bottom5.bmp" />
+        </div>
+        <div class="col-md-1">
+            <img src="images/bottom6.bmp" />
+        </div>
+        <div class="col-md-1">
+            <img src="images/bottom7.bmp" />
+        </div>
+        <div class="col-md-5">
+            <img src="images/bottom8.bmp" />
+        </div>-->
+        </div>
+    </div>
+
+
+</body>
+</html>

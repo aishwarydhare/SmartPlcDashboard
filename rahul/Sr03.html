@@ -1,0 +1,438 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sr02</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <style type="text/css">
+        td {
+            font-size: 12px;
+        }
+
+        table td {
+            border-color: gray !important;
+        }
+
+            #tblfooter td {
+            border-style: none;
+        }
+    </style>
+</head>
+<body style="background-color:#ece9d8;">
+    <!--<body>-->
+    <div class="container">
+        <div class="row">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <td></td>
+                        <td>Clamp (mm) <img src="images/scaleicon.bmp" style="float:right" /><strong id="clamp"></strong></td>
+                        <td>Screw (mm)  <img src="images/scaleicon.bmp" style="float:right" /> <strong id="screw"></strong></td>
+                        <td>Hyd.Ej (mm)  <img src="images/scaleicon.bmp" style="float:right" /> <strong id="hydej"></strong></td>
+                        <td>Inj.Unit (mm)   <img src="images/scaleicon.bmp" style="float:right" /><strong id="injunit"></strong></td>
+                        <td> <img src="images/pencilicon.bmp" /> <br /> Screw (rpm)  <strong id="screwrpm"></strong></td>
+                        <td>Energy (kwh)</br><strong id="energy"></strong></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Batch / <strong id="batch"></strong></td>
+                        <td>Hourly Pro: <br /> Rem Mins: <strong id="hourlyprorem"></strong></td>
+                        <td><img src="images/clockicon.bmp" style="float:right" /><br /> Mold Cls (sec)</br><strong id="moldcls"></strong></td>
+                        <td><img src="images/clockicon.bmp" style="float:right" /><br />Injection (sec)</br><strong id="injection"></strong></td>
+                        <td><img src="images/clockicon.bmp" style="float:right" /><br />Refill (sec)</br><strong id="refill"></strong></td>
+                        <td><img src="images/clockicon.bmp" style="float:right" /><br />Cooling (sec)</br><strong id="cooling"></strong></td>
+                        <td><img src="images/clockicon.bmp" style="float:right" /><br />Total Cyc (sec)</br><strong id="totalcyc"></strong></td>
+                        <td>Access Level:</br><strong id="accecsslevel"></strong></td>
+                    </tr>
+                    <tr>
+                        <td>Flah: <strong id="flah">  </strong></td>
+                        <td colspan="3">Stage:  <strong id="stage">  </strong> </td>
+
+                        <td>Q=<strong id="q_percent">  </strong>  % </td>
+                        <td>P=<strong id="p_bar">  </strong>  bar </td>
+                        <td>D=<strong id="d_mm">  </strong>  mm </td>
+                        <td>T=<strong id="t_sec">  </strong>  sec </td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3" style="background-color:#A5A5A5">
+                <h4>MOLD CLOSE DATA - 1</h4>
+            </div>
+            <div class="col-md-9">
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-9" style="padding-left:0">
+                <div class="panel panel-default" style="width:100%;border:1px solid gray">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-2">
+
+                            </div>
+                            <div class="col-md-2">
+                                <span>Slow 1</span><span style="float:right"> <img src="images/rightarrow.bmp" /></span>
+                            </div>
+                            <div class="col-md-2">
+                                <span>Fast</span><span style="float:right"> <img src="images/rightarrow.bmp" /></span>
+                            </div>
+                            <div class="col-md-2">
+                                <span>Slow 2</span><span style="float:right"> <img src="images/rightarrow.bmp" /></span>
+                            </div>
+                            <div class="col-md-2">
+                                <span>Safety</span><span style="float:right"> <img src="images/rightarrow.bmp" /></span>
+                            </div>
+                            <div class="col-md-2">
+                                <span>Locking</span>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <span>Flow (%)</span>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%" class="slow1-0"/>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%" class="fast-0"/>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%" class="slow2-0"/>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%" class="safety-0"/>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%" class="locking-0"/>
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <span>Pressure (bar)</span>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%" class="slow1-1"/>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%" class="fast-1"/>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%" class="slow2-1"/>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%" class="safety-1"/>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%" class="locking-1"/>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <span>Position (mm)</span>
+                            </div>
+                            <div class="col-md-2">
+                                <input class="slow1-2" type="text" style="width:100%" />
+                            </div>
+                            <div class="col-md-2">
+                                <input class="fast-2" type="text" style="width:100%" />
+                            </div>
+                            <div class="col-md-2">
+                                <input class="slow2-2" type="text" style="width:100%" />
+                            </div>
+                            <div class="col-md-2">
+                                <input class="safety-2" type="text" style="width:100%" />
+                            </div>
+                            <div class="col-md-2">
+                                <input class="locking-2" type="text" style="width:100%" />
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <span>Speeds (mm/s)</span>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%;background-color:#e6ffe6" />
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%;background-color:#e6ffe6" />
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%;background-color:#e6ffe6" />
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%;background-color:#e6ffe6" />
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%;background-color:#f7f5e6;text-align:center;font-weight:bold" value="---" />
+                            </div>
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-2">
+                                <span>Act Stage Time</span>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%;background-color:#e6ffe6" />
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%;background-color:#e6ffe6" />
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%;background-color:#e6ffe6" />
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%;background-color:#e6ffe6" />
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" style="width:100%;background-color:#e6ffe6" />
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-default" style="border:1px solid gray;background-color:#FCF2E3">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">
+                                        <label style="background-color:#DFCDB9;text-align:center">D.I</label>
+                                    </div>
+                                    <div class="col-md-4"></div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <span>LS01</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="checkbox" />
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <span>LS02</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="checkbox" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row" style="height:10px;"></div>
+                <div class="row">
+                    <div class="col-md-6">
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-default" style="border:1px solid gray;background-color:#FCF2E3">
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">
+                                        <label style="background-color:#DFCDB9;text-align:center">D.O</label>
+                                    </div>
+                                    <div class="col-md-4"></div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <span>V01</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="checkbox" />
+                                    </div>
+                                </div>
+                                <div class="row" style="height:30px">
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row" style="height:20px;"> </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="form-group">
+                        <label>Actual Force</label><input id="actualforce" type="text" style="width:20%" /><label>Tonnes</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="panel panel-default" style="border:1px solid gray;background-color:#FCF2E3;width:100%">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-1">
+                                </div>
+                                <div class="col-md-10">
+                                    <img src="images/screenimg1.bmp" />
+                                </div>
+
+                                <div class="col-md-1">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                </div>
+                                <div class="col-md-10">
+                                    <label>Clamp Position</label><input type="text" id="cllampposition" style="width:40%;background-color:#e6ffe6" /><label>mm</label>
+                                </div>
+
+                                <div class="col-md-1">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="panel panel-default" style="border:1px solid gray;width:100%">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" style="">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Set</th>
+                                        <th>Actual</th>
+                                        <th>Last</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Mold Close Time</td>
+                                        <td><input type="text" id="moldclosetime"/></td>
+                                        <td><input type="text" style="background-color:#e6ffe6" /> </td>
+                                        <td><input type="text" style="background-color:#e6ffe6" /> </td>
+                                        <td>Sec</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mold Safety Time</td>
+                                        <td><input type="text" id="moldsafetytime"/></td>
+                                        <td><input type="text" style="background-color:#e6ffe6" /> </td>
+                                        <td><input type="text" style="background-color:#e6ffe6" /> </td>
+                                        <td>Sec</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Locking Time</td>
+                                        <td><input type="text" id="moldlockingtime"/></td>
+                                        <td><input type="text" style="background-color:#e6ffe6" /> </td>
+                                        <td> </td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+        <div class="row" style="height:10px"></div>
+
+        <div class="row">
+            <table id="tblfooter" class="table table-bordered" style="padding-left:0">
+                <tr>
+                    <td>  <img src="images/bottom1.bmp" /></td>
+                    <td>  <img src="images/bottom2.bmp" /></td>
+                    <td>  <img src="images/bottom3.bmp" /></td>
+                    <td>  <img src="images/bottom4.bmp" /></td>
+                    <td>  <img src="images/bottom5.bmp" /></td>
+                    <td>  <img src="images/bottom6.bmp" /></td>
+                    <td>  <img src="images/bottom7.bmp" /></td>
+                    <td>  <img src="images/bottom8.bmp" /></td>
+
+                </tr>
+
+            </table>
+            <!--<div class="col-md-1">
+                <img src="images/bottom1.bmp" />
+            </div>
+            <div class="col-md-1">
+                <img src="images/bottom2.bmp" />
+            </div>
+            <div class="col-md-1">
+                <img src="images/bottom3.bmp" />
+            </div>
+            <div class="col-md-1">
+                <img src="images/bottom4.bmp" />
+            </div>
+            <div class="col-md-1">
+                <img src="images/bottom5.bmp" />
+            </div>
+            <div class="col-md-1">
+                <img src="images/bottom6.bmp" />
+            </div>
+            <div class="col-md-1">
+                <img src="images/bottom7.bmp" />
+            </div>
+            <div class="col-md-5">
+                <img src="images/bottom8.bmp" />
+            </div>-->
+        </div>
+    </div>
+
+    <script>
+
+		$(document).ready(function() {
+			$.ajax({
+				url: 'http://127.0.0.1:8002/api/download',
+				success: function(response){
+					let data = response['SR03'];
+					let keys = Object.keys(data);
+					for (let i = 0; i < keys.length; i++) {
+						if(keys[i] === "table"){
+							let dataArr = data["table"];
+							for (let j = 0; j < dataArr.length; j++) {
+								let k2 = Object.keys(dataArr[j]);
+								for (let k = 0; k < k2.length; k++) {
+									$('.' + k2[k] + "-" + j).val(dataArr[j][k2[k]]);
+								}
+							}
+                        } else {
+							$('#' + keys[i]).html(data[keys[i]]);
+							$('#' + keys[i]).val(data[keys[i]]);
+						}
+					}
+				},
+			});
+		});
+
+    </script>
+
+</body>
+</html>

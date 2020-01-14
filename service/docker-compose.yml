@@ -1,0 +1,20 @@
+version: '2.0'
+volumes:
+  log_uploads:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /Users/aishwarydhare/Work/python/repos_django/simplefileupload/log_uploads
+#      device: /home/ubuntu/repos_django/simplefileupload/log_uploads
+services:
+  sfu:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    network_mode: "host"
+    ports:
+      - 8002:8002
+    volumes:
+      - log_uploads:/usr/src/app/log_uploads
