@@ -73,7 +73,7 @@ app.get('/api/download', function (request, response) {
 
 
 async function init() {
-	const host = "127.0.0.1";
+	const host = "0.0.0.0";
 	const port = 8002;
 	app.listen(port, host, function () {
 		console.log("Node-Server Started on:", host + ":" + port);
