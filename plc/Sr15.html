@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sr02</title>
+    <title>Sr15</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -23,481 +23,334 @@
     </style>
 </head>
 <body style="background-color:#ece9d8;">
-    <!--<body>-->
-    <div class="container">
-        <div class="row">
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <tr>
-                        <td></td>
-                        <td>Clamp (mm) <img src="images/scaleicon.bmp" style="float:right" /></td>
-                        <td>Screw (mm)  <img src="images/scaleicon.bmp" style="float:right" /> </td>
-                        <td>Hyd.Ej (mm)  <img src="images/scaleicon.bmp" style="float:right" /> </td>
-                        <td>Inj.Unit (mm)   <img src="images/scaleicon.bmp" style="float:right" /></td>
-                        <td> <img src="images/pencilicon.bmp" /> <br /> Screw (rpm)  </td>
-                        <td>Energy (kwh)</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Batch /</td>
-                        <td>Hourly Pro: <br /> Rem Mins:</td>
-                        <td><img src="images/clockicon.bmp" style="float:right" /><br /> Mold Cls (sec)</td>
-                        <td><img src="images/clockicon.bmp" style="float:right" /><br />Injection (sec)</td>
-                        <td><img src="images/clockicon.bmp" style="float:right" /><br />Refill (sec)</td>
-                        <td><img src="images/clockicon.bmp" style="float:right" /><br />Cooling (sec)</td>
-                        <td><img src="images/clockicon.bmp" style="float:right" /><br />Total Cyc (sec)</td>
-                        <td>Access Level:</td>
-                    </tr>
-                    <tr>
-                        <td>Flag: <!--<input type="text" />--></td>
-                        <td colspan="3">Stage:  <!--<input type="text" />--> </td>
-
-                        <td>Q=<!--<input type="text" />-->% </td>
-                        <td>P=<!--<input type="text" />--> bar </td>
-                        <td>D=<!--<input type="text" />--> mm </td>
-                        <td>T=<!--<input type="text" />--> sec </td>
-
-                    </tr>
-
-                </table>
-            </div>
+<!--<body>-->
+<div class="container">
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <td></td>
+                    <td>Clamp (mm) <img src="images/scaleicon.bmp" style="float:right" /><strong id="clamp"></strong></td>
+                    <td>Screw (mm)  <img src="images/scaleicon.bmp" style="float:right" />  <strong id="screw"></strong></td>
+                    <td>Hyd.Ej (mm)  <img src="images/scaleicon.bmp" style="float:right" /><strong id="hydej"></strong> </td>
+                    <td>Inj.Unit (mm)   <img src="images/scaleicon.bmp" style="float:right" /><strong id="injunit"></strong></td>
+                    <td> <img src="images/pencilicon.bmp" /> <br /> Screw (rpm)  <strong id="screwrpm"></strong></td>
+                    <td>Energy (kwh) <br /> <strong id="energy"></strong></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Batch / <strong id="batch"></strong></td>
+                    <td>Hourly Pro: <br /> Rem Mins: <strong id="hourlyprorem"></strong></td>
+                    <td><img src="images/clockicon.bmp" style="float:right" /><br /> Mold Cls (sec)<br /> <strong id="moldcls"></strong></td>
+                    <td><img src="images/clockicon.bmp" style="float:right" /><br />Injection (sec)<br /><strong id="injection"></strong></td>
+                    <td><img src="images/clockicon.bmp" style="float:right" /><br />Refill (sec) <br /><strong id="refill"></strong> </td>
+                    <td><img src="images/clockicon.bmp" style="float:right" /><br />Cooling (sec) <br /><strong id="cooling"></strong>  </td>
+                    <td><img src="images/clockicon.bmp" style="float:right" /><br />Total Cyc (sec) <br /><strong id="totalcyc"></strong> </td>
+                    <td>Access Level:</td>
+                </tr>
+                <tr>
+                    <td>Flag: <strong id="flah"></strong></td>
+                    <td colspan="3">Stage: <strong id="stage">  </strong> </td>
+                    <td>Q=<strong id="q_percent">  </strong> % </td>
+                    <td>P=<strong id="p_bar">  </strong> bar </td>
+                    <td>D=<strong id="d_mm">  </strong> mm </td>
+                    <td>T=<strong id="t_sec">  </strong> sec </td>
+                </tr>
+            </table>
         </div>
-        <div class="row">
-            <div class="col-md-2" style="background-color:#A5A5A5">
-                <h4>INJECTION</h4>
-            </div>
-
-            <div class="col-md-1">
-
-                <label>Mode</label>
-            </div>
-            <div class="col-md-1">
-                <select style="width:100%"></select>
-            </div>
-
-
-            <div class="col-md-2">
-
-                <label>Total Inj. Time Set </label>
-            </div>
-
-            <div class="col-md-1">
-                <input type="text"  style="width:100%"/>
-            </div>
-
-            <div class="col-md-1">
-
-                <label>Elapsed </label>
-            </div>
-
-
-            <div class="col-md-1">
-                <input type="text"  style="width:100%;background-color:#e6ffe6" />
-            </div>
-            <div class="col-md-1">
-
-                <label>Remaining </label>
-            </div>
-
-
-            <div class="col-md-2">
-                <input type="text"  style="width:100%;background-color:#e6ffe6" />
-            </div>
-
+    </div>
+    <div class="row">
+        <div class="col-md-2" style="background-color:#A5A5A5">
+            <h4>INJECTION</h4>
         </div>
-        <div class="row" style="height:10px;"></div>
-        <div class="row">
-            <div class="col-md-10" style="padding-left:0">
-                <div class="panel panel-default" style="width:100%;border:1px solid gray">
-                    <div class="panel-body">
-                        <div class="table-responsive" >
-                            <table class="table table-bordered" >
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>Stage 5 <img src="images/leftarrow.bmp" style="float:right" /></th>
-                                        <th>Stage 4 <img src="images/leftarrow.bmp" style="float:right"/></th>
-                                        <th>Stage 3 <img src="images/leftarrow.bmp" style="float:right"/></th>
-                                        <th>Stage 2 <img src="images/leftarrow.bmp" style="float:right"/></th>
-                                        <th>Stage 1 <img src="images/leftarrow.bmp" style="float:right"/></th>
-                                        <th>Intrugen</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Flow (%) </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Pressure(bar) </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Position(mm) </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <label   style="width:100%;background-color:#F7F5E6;text-align:center;font-weight:bold" >-----</label> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Time(sec) </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Pumps </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                        <td> <input type="text" style="width:100%" /> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Speeds(mm/s)</td>
-                                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-                                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-                                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-                                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-                                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-                                        <td> <input type="text" value="RPM=" style="width:100%;background-color:#e6ffe6" /> </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Act Stage Time </td>
-                                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-                                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-                                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-                                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-                                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-                                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-                                    </tr>
-                                </tbody>
-                                </table>
-                            </div>
-                                <!--<div class="row">
-            <div class="col-md-2">
-
-            </div>
-            <div class="col-md-2">
-                <span>Slow 3</span><span style="float:right"> <img src="images/leftarrow.bmp" /></span>
-            </div>
-            <div class="col-md-2">
-                <span>Slow 2</span><span style="float:right"> <img src="images/leftarrow.bmp" /></span>
-            </div>
-            <div class="col-md-2">
-                <span>Fast</span><span style="float:right"> <img src="images/leftarrow.bmp" /></span>
-            </div>
-            <div class="col-md-2">
-                <span>Slow 1</span><span style="float:right"> <img src="images/leftarrow.bmp" /></span>
-            </div>
-            <div class="col-md-2">
-                <span>Decomp</span>
-            </div>
-
+        <div class="col-md-1">
+            <label>Mode</label>
         </div>
-        <div class="row">
-            <div class="col-md-2">
-                <span>Flow (%)</span>
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%" />
-            </div>
-
+        <div class="col-md-1">
+            <select style="width:100%" id="injectionmode"></select>
         </div>
 
-        <div class="row">
-            <div class="col-md-2">
-                <span>Pressure (bar)</span>
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%" />
-            </div>
+        <div class="col-md-2">
+            <label>Total Inj. Time Set </label>
+        </div>
+        <div class="col-md-1">
+            <input type="text" id="injectiontotinjtimeset" style="width:100%" />
 
         </div>
-        <div class="row">
-            <div class="col-md-2">
-                <span>Position (mm)</span>
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%;background-color:#f7f5e6;text-align:center;font-weight:bold" value="---" />
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                <span>Speeds (mm/s)</span>
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%;background-color:#e6ffe6" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%;background-color:#e6ffe6" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%;background-color:#e6ffe6" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%;background-color:#e6ffe6" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%;background-color:#f7f5e6;text-align:center;font-weight:bold" value="---" />
-            </div>
-
+        <div class="col-md-1">
+            <label>Elapsed </label>
         </div>
 
-        <div class="row">
-            <div class="col-md-2">
-                <span>Act Stage Time</span>
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%;background-color:#e6ffe6" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%;background-color:#e6ffe6" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%;background-color:#e6ffe6" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%;background-color:#e6ffe6" />
-            </div>
-            <div class="col-md-2">
-                <input type="text" style="width:100%;background-color:#e6ffe6" />
-            </div>
+        <div class="col-md-1">
+            <input type="text" id="injectionelapsed" style="width:100%;background-color:#e6ffe6" />
+        </div>
+        <div class="col-md-1">
+            <label>Remaining </label>
+        </div>
 
-        </div>-->
-
-
-                        </div>
-                </div>
-            </div>
-            <div class="col-md-2">
-
-
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <thead>
+        <div class="col-md-2">
+            <input type="text" id="injectionremaining" style="width:100%;background-color:#e6ffe6" />
+        </div>
+    </div>
+    <div class="row" style="height:10px;"></div>
+    <div class="row">
+        <div class="col-md-10" style="padding-left:0">
+            <div class="panel panel-default" style="width:100%;border:1px solid gray">
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
                             <tr>
-                                <th>Pre. Inject</th>
+                                <th></th>
+                                <th>Stage 5 <img src="images/leftarrow.bmp" style="float:right" /></th>
+                                <th>Stage 4 <img src="images/leftarrow.bmp" style="float:right" /></th>
+                                <th>Stage 3 <img src="images/leftarrow.bmp" style="float:right" /></th>
+                                <th>Stage 2 <img src="images/leftarrow.bmp" style="float:right" /></th>
+                                <th>Stage 1 <img src="images/leftarrow.bmp" style="float:right" /></th>
+                                <th>Intrugen</th>
                             </tr>
-                        </thead>
-                        <tbody>
+                            </thead>
+                            <tbody>
                             <tr>
-                                <td>
-                                    <input type="text" style="width:100%" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="text" style="width:100%" />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <label style="width:100%;background-color:#F7F5E6;text-align:center;font-weight:bold">-----</label>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <input type="text" style="width:100%" />
-                                </td>
+                                <td>Flow (%) </td>
+                                <td> <input type="text" style="width:100%" id="flowstage5" /> </td>
+                                <td> <input type="text" style="width:100%" id="flowstage4" /> </td>
+                                <td> <input type="text" style="width:100%" id="flowstage3" /> </td>
+                                <td> <input type="text" style="width:100%" id="flowstage2" /> </td>
+                                <td> <input type="text" style="width:100%" id="flowstage1" /> </td>
+                                <td> <input type="text" style="width:100%" id="flowintrugen" /> </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <input type="text" style="width:100%" />
-                                </td>
+                                <td>Pressure(bar) </td>
+                                <td> <input type="text" style="width:100%" id="pressurestage5" /> </td>
+                                <td> <input type="text" style="width:100%" id="pressurestage4" /> </td>
+                                <td> <input type="text" style="width:100%" id="pressurestage3" /> </td>
+                                <td> <input type="text" style="width:100%" id="pressurestage2" /> </td>
+                                <td> <input type="text" style="width:100%" id="pressurestage1" /> </td>
+                                <td> <input type="text" style="width:100%" id="pressureintrugen" /> </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <label style="width:100%;background-color:#F7F5E6;text-align:center;font-weight:bold">-----</label>
-                                </td>
+                                <td>Position(mm) </td>
+                                <td> <input type="text" style="width:100%" id="positionstage5" /> </td>
+                                <td> <input type="text" style="width:100%" id="positionstage4" /> </td>
+                                <td> <input type="text" style="width:100%" id="positionstage3" /> </td>
+                                <td> <input type="text" style="width:100%" id="positionstage2" /> </td>
+                                <td> <input type="text" style="width:100%" id="positionstage1" /> </td>
+                                <td> <label style="width:100%;background-color:#F7F5E6;text-align:center;font-weight:bold">-----</label> </td>
                             </tr>
                             <tr>
-                                <td>
-                                    <input type="text" style="width:100%;background-color:#e6ffe6" />
-                                </td>
+                                <td>Time(sec) </td>
+                                <td> <input type="text" style="width:100%" id="timestage5" /> </td>
+                                <td> <input type="text" style="width:100%" id="timestage4" /> </td>
+                                <td> <input type="text" style="width:100%" id="timestage3" /> </td>
+                                <td> <input type="text" style="width:100%" id="timestage2" /> </td>
+                                <td> <input type="text" style="width:100%" id="timestage1" /> </td>
+                                <td> <input type="text" style="width:100%" id="timeintrugen" /> </td>
                             </tr>
-                        </tbody>
+                            <tr>
+                                <td>Pumps </td>
+                                <td> <input type="text" style="width:100%" id="pumpsstage5" /> </td>
+                                <td> <input type="text" style="width:100%" id="pumpsstage4" /> </td>
+                                <td> <input type="text" style="width:100%" id="pumpsstage3" /> </td>
+                                <td> <input type="text" style="width:100%" id="pumpsstage2" /> </td>
+                                <td> <input type="text" style="width:100%" id="pumpsstage1" /> </td>
+                                <td> <input type="text" style="width:100%" id="pumpsintrugen" /> </td>
+                            </tr>
+                            <tr>
+                                <td>Speeds(mm/s)</td>
+                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="speedsstage5" /> </td>
+                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="speedsstage4" /> </td>
+                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="speedsstage3" /> </td>
+                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="speedsstage2" /> </td>
+                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="speedsstage1" /> </td>
+                                <td> <input type="text" value="RPM=" style="width:100%;background-color:#e6ffe6" id="speedsintrugen" /> </td>
+                            </tr>
+                            <tr>
+                                <td>Act Stage Time </td>
+                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="actstagetimestage5" /> </td>
+                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="actstagetimestage4" /> </td>
+                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="actstagetimestage3" /> </td>
+                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="actstagetimestage2" /> </td>
+                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="actstagetimestage1" /> </td>
+                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="actstagetimeintrugen" /> </td>
+                            </tr>
+                            </tbody>
                         </table>
                     </div>
 
+
                 </div>
             </div>
-        <div class="row" style="height:20px;"> </div>
-        <div class="row">
-            <div class="col-md-3">
+        </div>
+        <div class="col-md-2">
 
-                <div class="row">
-                    <div class="panel panel-default" style="border:1px solid gray;background-color:#FCF2E3;width:100%">
-                        <div class="panel-body">
-                            <div class="row" style="height:10px;"></div>
-                            <div class="row">
-                                <div class="col-md-6">   <label>Inject. Pressure </label></div>
-                                <div class="col-md-4">   <input type="text" style="width:100%;background-color:#e6ffe6" /></div>
-                                <div class="col-md-2">   <label>bar</label></div>
-                        
-
-                            </div>
-                                <div class="row">
-                                    <div class="col-md-1">
-                                    </div>
-                                    <div class="col-md-10">
-                                        <img src="images/screenimg3.bmp"  />
-                                        <img src="images/screenimg4.bmp"  style="margin-left:-2%;height:40px;"/>
-                                    </div>
-
-                                    <div class="col-md-1">
-                                    </div>
-                                </div>
-                                <div class="row" style="height:30px;"></div>
-                                <div class="row">
-                                    <div class="col-md-1">
-                                    </div>
-                                    <div class="col-md-10">
-                                        <label>Screw Position</label><input type="text" style="width:40%;background-color:#e6ffe6" /><label>mm</label>
-                                    </div>
-
-                                    <div class="col-md-1">
-                                    </div>
-                                </div>
-                                <div class="row" style="height:15px;"></div>
-                            </div>
-
-                        </div>
-                </div>
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Pre. Inject</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" style="width:100%" id="preinject0" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" style="width:100%" id="preinject1" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label style="width:100%;background-color:#F7F5E6;text-align:center;font-weight:bold">-----</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" style="width:100%" id="preinject3" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" style="width:100%" id="preinject4" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label style="width:100%;background-color:#F7F5E6;text-align:center;font-weight:bold">-----</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" style="width:100%;background-color:#e6ffe6" id="preinject6" />
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
-            <div class="col-md-9">
-                
-                     
-                            <table class="table table-bordered" style="border:0">
-                               
-                                <tbody>
-                                    <tr>
-                                        <td style="border:0">Switchover Position (mm)</td>
-                                        <td style="border:0"><input type="text" style="width:100%" /> </td>
-
-                                        <td style="border:0">(Timer mode Only) </td>
-                                        <td style="border:0"></td>
-                                    </tr>
-                                    <tr>
-                                        <td style="border:0">Injection Boost Stage ( 1 to 5 )</td>
-                                        <td style="border:0"><select style="width:100%"></select> </td>
-
-                                        <td style="border:0">Solenoid </td>
-                                        <td style="border:0"><input type="text" style="width:100%" /></td>
-                                    </tr>
-                                    <tr>
-                                        <td style="border:0">Injection For Set Injection Time </td>
-                                        <td style="border:0"><select style="width:100%"></select> </td>
-
-                                        <td style="border:0">(Position mode Only) </td>
-                                        <td style="border:0"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                     
-                    </div>
-                
-            </div>
-            
-
-        <div class="row" style="height:10px"></div>
-
-        <div class="row">
-            <table id="tblfooter" class="table table-bordered" style="padding-left:0">
-                <tr>
-                    <td>  <img src="images/bottom4.bmp" /></td>
-                    <td>  <img src="images/bottom1.bmp" /></td>
-                    <td>  <img src="images/bottom2.bmp" /></td>
-                    <td>  <img src="images/bottom3.bmp" /></td>
-
-                    <td>  <img src="images/bottom5.bmp" /></td>
-                    <td>  <img src="images/bottom6.bmp" /></td>
-                    <td>  <img src="images/bottom7.bmp" /></td>
-                    <td>  <img src="images/bottom8.bmp" /></td>
-
-                </tr>
-
-            </table>
-            <!--<div class="col-md-1">
-                <img src="images/bottom1.bmp" />
-            </div>
-            <div class="col-md-1">
-                <img src="images/bottom2.bmp" />
-            </div>
-            <div class="col-md-1">
-                <img src="images/bottom3.bmp" />
-            </div>
-            <div class="col-md-1">
-                <img src="images/bottom4.bmp" />
-            </div>
-            <div class="col-md-1">
-                <img src="images/bottom5.bmp" />
-            </div>
-            <div class="col-md-1">
-                <img src="images/bottom6.bmp" />
-            </div>
-            <div class="col-md-1">
-                <img src="images/bottom7.bmp" />
-            </div>
-            <div class="col-md-5">
-                <img src="images/bottom8.bmp" />
-            </div>-->
         </div>
     </div>
+    <div class="row" style="height:20px;"> </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="row">
+                <div class="panel panel-default" style="border:1px solid gray;background-color:#FCF2E3;width:100%">
+                    <div class="panel-body">
+                        <div class="row" style="height:10px;"></div>
+                        <div class="row">
+                            <div class="col-md-6">   <label>Inject. Pressure </label></div>
+                            <div class="col-md-4">   <input type="text" style="width:100%;background-color:#e6ffe6" id="injectpressure" /></div>
+                            <div class="col-md-2">   <label>bar</label></div>
+
+                        </div>
+                        <div class="row">
+                            <div class="col-md-1">
+                            </div>
+                            <div class="col-md-10">
+                                <img src="images/screenimg3.bmp" />
+                                <img src="images/screenimg4.bmp" style="margin-left:-2%;height:40px;" />
+                            </div>
+                            <div class="col-md-1">
+                            </div>
+                        </div>
+                        <div class="row" style="height:30px;"></div>
+                        <div class="row">
+                            <div class="col-md-1">
+                            </div>
+                            <div class="col-md-10">
+                                <label>Screw Position</label><input type="text" style="width:40%;background-color:#e6ffe6" id="screwposition" /><label>mm</label>
+                            </div>
+                            <div class="col-md-1">
+                            </div>
+                        </div>
+                        <div class="row" style="height:15px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
 
 
+            <table class="table table-bordered" style="border:0">
+
+                <tbody>
+                <tr>
+                    <td style="border:0">Switchover Position (mm)</td>
+                    <td style="border:0"><input type="text" style="width:100%" id="switchoverposition" /> </td>
+                    <td style="border:0">(Timer mode Only) </td>
+                    <td style="border:0"></td>
+                </tr>
+                <tr>
+                    <td style="border:0">Injection Boost Stage ( 1 to 5 )</td>
+                    <td style="border:0"><input style="width:100%" id="injectionbooststage"/> </td>
+                    <td style="border:0">Solenoid </td>
+                    <td style="border:0"><input type="text" style="width:100%" id="solenoid"/></td>
+                </tr>
+                <tr>
+                    <td style="border:0">Injection For Set Injection Time </td>
+                    <td style="border:0"><input style="width:100%" id="injectionforsetinjectiontime"/> </td>
+                    <td style="border:0">(Position mode Only) </td>
+                    <td style="border:0"></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="row" style="height:10px"></div>
+    <div class="row">
+        <table id="tblfooter" class="table table-bordered" style="padding-left:0">
+            <tr>
+                <td>  <img src="images/bottom4.bmp" /></td>
+                <td>  <img src="images/bottom1.bmp" /></td>
+                <td>  <img src="images/bottom2.bmp" /></td>
+                <td>  <img src="images/bottom3.bmp" /></td>
+                <td>  <img src="images/bottom5.bmp" /></td>
+                <td>  <img src="images/bottom6.bmp" /></td>
+                <td>  <img src="images/bottom7.bmp" /></td>
+                <td>  <img src="images/bottom8.bmp" /></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<script>
+
+	$(document).ready(function () {
+		setInterval(function(){
+			poll();
+		}, 3000, 3000);
+	});
+
+	function poll(){
+		$.ajax({
+			// url: 'http://3.6.81.247:8002/api/download',
+			url: 'http://0.0.0.0:8002/api/download',
+			success: function (response) {
+				let data = response['SR15'];
+				let keys = Object.keys(data);
+				for (let i = 0; i < keys.length; i++) {
+					if(keys[i] === 'table'){
+						for (let j = 0; j < data[keys[i]].length; j++) {
+							let d2 = data[keys[i]][j];
+							let k2 = Object.keys(d2);
+							for (let k = 0; k < k2.length; k++) {
+								$('#' + k2[k]).html(d2[k2[k]]);
+								$('#' + k2[k]).val(d2[k2[k]]);
+							}
+						}
+					} else {
+						$('#' + keys[i]).html(data[keys[i]]);
+						$('#' + keys[i]).val(data[keys[i]]);
+					}
+				}
+			},
+		});
+	}
+
+</script>
 </body>
 </html>

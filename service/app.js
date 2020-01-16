@@ -53,16 +53,37 @@ app.get('/api/download', function (request, response) {
 			let rl = readline
 				.createInterface({input:
 						fs.createReadStream(FILE_PATH)});
-			let resultString = "";
+			let result = "";
 			rl.on('line', (line) => {
-				resultString += line;
+				result += line;
 			});
 			rl.on('close', async () => {
-				resultString = JSON.parse(resultString);
+				result = JSON.parse(result);
+				result = deepmerge(resultDefaultString, result);
 
-				let res = deepmerge(resultDefaultString, resultString);
+				let mKeys = Object.keys(result);
+				for (let i = 0; i < mKeys.length; i++) {
+					let keys = Object.keys(result[mKeys[i]]);
+					for (let j = 0; j < keys.length; j++) {
+						let k = keys[j];
+						if (k === 'table'){
+							for (let z = 0; z < result[mKeys[i]][k].length; z++) {
+
+								let lKeys = Object.keys(result[mKeys[i]][k][z]);
+								for (let m = 0; m < lKeys.length; m++) {
+									let k2 = lKeys[m];
+									result[mKeys[i]][k][z][k2] = getRandomNumber(50,100);
+								}
+
+							}
+						} else {
+							result[mKeys[i]][k] = getRandomNumber(100,150);
+						}
+					}
+				}
+
 				response.statusCode = 200;
-				response.json(res).end();
+				response.json(result).end();
 				return 0;
 			});
 		});
@@ -78,6 +99,10 @@ async function init() {
 	app.listen(port, host, function () {
 		console.log("Node-Server Started on:", host + ":" + port);
 	});
+}
+
+function getRandomNumber(min, max) {
+	return Math.floor(Math.random() * (+max - +min)) + +min;
 }
 
 init();

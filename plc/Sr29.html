@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Sr02</title>
+    <title>Sr29</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -23,327 +23,277 @@
     </style>
 </head>
 <body style="background-color:#ece9d8;">
-    <!--<body>-->
-    <div class="container">
-        <div class="row">
+<!--<body>-->
+<div class="container">
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <td></td>
+                    <td>Clamp (mm) <img src="images/scaleicon.bmp" style="float:right" /><strong id="clamp"></strong></td>
+                    <td>Screw (mm)  <img src="images/scaleicon.bmp" style="float:right" /><strong id="screw"></strong> </td>
+                    <td>Hyd.Ej (mm)  <img src="images/scaleicon.bmp" style="float:right" /><strong id="hydej"></strong> </td>
+                    <td>Inj.Unit (mm)   <img src="images/scaleicon.bmp" style="float:right" /><strong id="injunit"></strong></td>
+                    <td> <img src="images/pencilicon.bmp" /> <br /> Screw (rpm)  <strong id="screwrpm"></strong></td>
+                    <td>Energy (kwh)<br /><strong id="energy"></strong> </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Batch / <strong id="batch"></strong></td>
+                    <td>Hourly Pro: <br /> Rem Mins: <strong id="hourlyprorem"></strong></td>
+                    <td><img src="images/clockicon.bmp" style="float:right" /><br /> Mold Cls (sec) <br /><strong id="moldcls"></strong></td>
+                    <td><img src="images/clockicon.bmp" style="float:right" /><br />Injection (sec) <br /><strong id="injection"></strong></td>
+                    <td><img src="images/clockicon.bmp" style="float:right" /><br />Refill (sec) <br /><strong id="refill"></strong></td>
+                    <td><img src="images/clockicon.bmp" style="float:right" /><br />Cooling (sec) <br /><strong id="cooling"></strong></td>
+                    <td><img src="images/clockicon.bmp" style="float:right" /><br />Total Cyc (sec) <br /><strong id="totalcyc"></strong></td>
+                    <td>Access Level: <br /><strong id="accecsslevel"></strong></td>
+                </tr>
+                <tr>
+                    <td>Flag: <strong id="flah">  </strong></td>
+                    <td colspan="3">Stage: <strong id="stage">  </strong>  </td>
+                    <td>Q=<strong id="q_percent">  </strong> % </td>
+                    <td>P=<strong id="p_bar">  </strong> bar </td>
+                    <td>D=<strong id="d_mm">  </strong> mm </td>
+                    <td>T=<strong id="t_sec">  </strong> sec </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5" style="background-color:#A5A5A5">
+            <h4>TIMERS SETTINGS</h4>
+        </div>
+        <div class="col-md-7"></div>
+
+    </div>
+    <div class="row" style="height:10px;"></div>
+    <div class="row">
+        <div class="col-md-4">
             <div class="table-responsive">
                 <table class="table table-bordered">
+                    <thead>
                     <tr>
-                        <td></td>
-                        <td>Clamp (mm) <img src="images/scaleicon.bmp" style="float:right" /></td>
-                        <td>Screw (mm)  <img src="images/scaleicon.bmp" style="float:right" /> </td>
-                        <td>Hyd.Ej (mm)  <img src="images/scaleicon.bmp" style="float:right" /> </td>
-                        <td>Inj.Unit (mm)   <img src="images/scaleicon.bmp" style="float:right" /></td>
-                        <td> <img src="images/pencilicon.bmp" /> <br /> Screw (rpm)  </td>
-                        <td>Energy (kwh)</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>Batch /</td>
-                        <td>Hourly Pro: <br /> Rem Mins:</td>
-                        <td><img src="images/clockicon.bmp" style="float:right" /><br /> Mold Cls (sec)</td>
-                        <td><img src="images/clockicon.bmp" style="float:right" /><br />Injection (sec)</td>
-                        <td><img src="images/clockicon.bmp" style="float:right" /><br />Refill (sec)</td>
-                        <td><img src="images/clockicon.bmp" style="float:right" /><br />Cooling (sec)</td>
-                        <td><img src="images/clockicon.bmp" style="float:right" /><br />Total Cyc (sec)</td>
-                        <td>Access Level:</td>
-                    </tr>
-                    <tr>
-                        <td>Flag: <!--<input type="text" />--></td>
-                        <td colspan="3">Stage:  <!--<input type="text" />--> </td>
-
-                        <td>Q=<!--<input type="text" />-->% </td>
-                        <td>P=<!--<input type="text" />--> bar </td>
-                        <td>D=<!--<input type="text" />--> mm </td>
-                        <td>T=<!--<input type="text" />--> sec </td>
+                        <th>TIMERS</th>
+                        <th>Set </th>
+                        <th>Actual</th>
 
                     </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Mold Close Time</td>
+                        <td> <input type="text" style="width:100%" id="moldclosetimeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="moldclosetimeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Mold Safety Time</td>
+                        <td> <input type="text" style="width:100%" id="moldsafetytimeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="moldsafetytimeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Mold Lockg Time</td>
+                        <td> <input type="text" style="width:100%" id="moldlocktimeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="moldlocktimeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Pre Inject Time</td>
+                        <td> <input type="text" style="width:100%" id="preinjecttimeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="preinjecttimeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Intrugen Time</td>
+                        <td> <input type="text" style="width:100%" id="intrugentimeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="intrugentimeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Tot Inject Time</td>
+                        <td> <input type="text" style="width:100%" id="totinjecttimeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="totinjecttimeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Injection 1 Time</td>
+                        <td> <input type="text" style="width:100%" id="injection1timeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="injection1timeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Injection 2 Time</td>
+                        <td> <input type="text" style="width:100%" id="injection2timeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="injection2timeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Injection 3 Time</td>
+                        <td> <input type="text" style="width:100%" id="injection3timeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="injection3timeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Injection 4 Time</td>
+                        <td> <input type="text" style="width:100%" id="injection4timeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="injection4timeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Injection 5 Time</td>
+                        <td> <input type="text" style="width:100%" id="injection5timeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="injection5timeactual" /> </td>
+                    </tr>
 
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>TIMERS</th>
+                        <th>Set </th>
+                        <th>Actual</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Hold On 1 Time</td>
+                        <td> <input type="text" style="width:100%" id="holdon1timeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="holdon1timeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Hold On 2 Time</td>
+                        <td> <input type="text" style="width:100%" id="holdon2timeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="holdon2timeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Hold On 3 Time</td>
+                        <td> <input type="text" style="width:100%" id="holdon3timeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="holdon3timeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Hold On 4 Time</td>
+                        <td> <input type="text" style="width:100%" id="holdon4timeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="holdon4timeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Mold Safety Time</td>
+                        <td> <input type="text" style="width:100%" id="timersmoldsafetytimeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="timersmoldsafetytimeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Cooling Time</td>
+                        <td> <input type="text" style="width:100%" id="coolingtimeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="coolingtimeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;&nbsp;
+                        </td>
+                        <td>&nbsp;&nbsp;</td>
+                        <td>&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Mold Open</td>
+                        <td> <input type="text" style="width:100%" id="moldopenset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="moldopenactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Hold Time</td>
+                        <td> <input type="text" style="width:100%" id="holdtimeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="holdtimeactual" /> </td>
+                    </tr>
+
+
+                    </tbody>
                 </table>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-5" style="background-color:#A5A5A5">
-                <h4>TIMERS SETTINGS</h4>
-            </div>
-            <div class="col-md-7"></div>
+        <div class="col-md-4">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>TIMERS</th>
+                        <th>Set </th>
+                        <th>Actual</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Init Decomp Time</td>
+                        <td> <input type="text" style="width:100%" id="initdecomptimeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="initdecomptimeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Pre Suckback</td>
+                        <td> <input type="text" style="width:100%" id="presuckbackset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="presuckbackactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Refill 1 Time</td>
+                        <td> <input type="text" style="width:100%" id="refill1timeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="refill1timeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Refill 2 Time</td>
+                        <td> <input type="text" style="width:100%" id="refill2timeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="refill2timeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Refill 3 Time</td>
+                        <td> <input type="text" style="width:100%" id="refill3timeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="refill3timeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Post Suckback</td>
+                        <td> <input type="text" style="width:100%" id="postsuckbackset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="postsuckbackactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Unit Fwd 1 Time</td>
+                        <td> <input type="text" style="width:100%" id="unitfwd1timeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="unitfwd1timeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Unit Ret 1 Time</td>
+                        <td> <input type="text" style="width:100%" id="unitret1timeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="unitret1timeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Unit Ret 2 Time</td>
+                        <td> <input type="text" style="width:100%" id="unitret2timeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="unitret2timeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Fin Decom Time</td>
+                        <td> <input type="text" style="width:100%" id="findecomtimeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="findecomtimeactual" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Tot Cycle Time</td>
+                        <td> <input type="text" style="width:100%" id="totcycletimeset" /> </td>
+                        <td> <input type="text" style="width:100%;background-color:#e6ffe6" id="totcycletimeactual" /> </td>
+                    </tr>
 
-
-        </div>
-        <div class="row" style="height:10px;"></div>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>TIMERS</th>
-                                <th>Set </th>
-                                <th>Actual</th>
-                                
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td>Mold Close Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Mold Safety Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Mold Lockg Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Pre Inject Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Intrugen Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Tot Inject Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Injection 1 Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Injection 2 Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Injection 3 Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Injection 4 Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Injection 5 Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                        
-
-                        </tbody>
-                    </table>
-                </div>
-
-
-            </div>
-            
-            <div class="col-md-4">
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>TIMERS</th>
-                                <th>Set </th>
-                                <th>Actual</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td>Hold On 1 Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Hold On 2 Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Hold On 3 Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Hold On 4 Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Mold Safety Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Cooling Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>
-                                    &nbsp;&nbsp;
-                                </td>
-                                <td>&nbsp;&nbsp;</td>
-                                <td>&nbsp;&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td>Mold Open</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Hold Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                           
-
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>TIMERS</th>
-                                <th>Set </th>
-                                <th>Actual</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td>Init Decomp Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Pre Suckback</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Refill 1 Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Refill 2 Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Refill 3 Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Post Suckback</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-
-                            <tr>
-                                <td>Unit Fwd 1 Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Unit Ret 1 Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Unit Ret 2 Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Fin Decom Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-                            <tr>
-                                <td>Tot Cycle Time</td>
-                                <td> <input type="text" style="width:100%" /> </td>
-                                <td> <input type="text" style="width:100%;background-color:#e6ffe6" /> </td>
-
-                            </tr>
-
-
-                        </tbody>
-                    </table>
-                </div>
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="row" style="height:20px;"> </div>
-      
+    </div>
+    <div class="row" style="height:20px;"> </div>
 
-        <div class="row">
-            <table id="tblfooter" class="table table-bordered" style="padding-left:0">
-                <tr>
-                    <td>  <img src="images/bottom7.bmp" /></td>
-                    <td>  <img src="images/bottom1.bmp" /></td>
-                    <td>  <img src="images/bottom2.bmp" /></td>
-                    <td>  <img src="images/bottom3.bmp" /></td>
-                    <td>  <img src="images/bottom4.bmp" /></td>
-
-                    <td>  <img src="images/bottom5.bmp" /></td>
-
-                    <td>  <img src="images/bottom6.bmp" /></td>
-
-                    <td>  <img src="images/bottom8.bmp" /></td>
-
-                </tr>
-
-            </table>
-            <!--<div class="col-md-1">
+    <div class="row">
+        <table id="tblfooter" class="table table-bordered" style="padding-left:0">
+            <tr>
+                <td>  <img src="images/bottom7.bmp" /></td>
+                <td>  <img src="images/bottom1.bmp" /></td>
+                <td>  <img src="images/bottom2.bmp" /></td>
+                <td>  <img src="images/bottom3.bmp" /></td>
+                <td>  <img src="images/bottom4.bmp" /></td>
+                <td>  <img src="images/bottom5.bmp" /></td>
+                <td>  <img src="images/bottom6.bmp" /></td>
+                <td>  <img src="images/bottom8.bmp" /></td>
+            </tr>
+        </table>
+        <!--<div class="col-md-1">
             <img src="images/bottom1.bmp" />
         </div>
         <div class="col-md-1">
@@ -367,9 +317,30 @@
         <div class="col-md-5">
             <img src="images/bottom8.bmp" />
         </div>-->
-        </div>
     </div>
+</div>
+<script>
 
+	$(document).ready(function () {
+		setInterval(function(){
+            poll();
+		}, 3000, 3000);
+	});
 
+	function poll(){
+		$.ajax({
+			url: 'http://3.6.81.247:8002/api/download',
+			success: function (response) {
+				let data = response['SR29'];
+				let keys = Object.keys(data);
+				for (let i = 0; i < keys.length; i++) {
+					$('#' + keys[i]).html(data[keys[i]]);
+					$('#' + keys[i]).val(data[keys[i]]);
+				}
+			},
+		});
+	}
+
+</script>
 </body>
 </html>
